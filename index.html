@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel and Tourism</title>
+  <style>
+    /* CSS styles */
+    /* Add your CSS styles here */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3; /* Default background color */
+      transition: background-color 0.5s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700; /* Change color on hover */
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1); /* Scale up on hover */
+    }
+
+    .toggle {
+      display: none; /* Hide toggle button by default */
+    }
+
+    .search-form {
+      display: flex;
+    }
+
+    .search-input {
+      padding: 8px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .search-btn {
+      background-color: #fff;
+      color: #333;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-btn:hover {
+      background-color: #ddd; /* Change background color on hover */
+    }
+
+    .hero {
+      background: url('hero-bg.jpg') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .btn {
+      background-color: #fff;
+      color: #333;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    .destinations {
+      padding: 50px 0;
+    }
+
+    .destination-card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .destination-card:hover {
+      transform: translateY(-5px); /* Move up on hover */
+    }
+
+    .destination-card img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .destination-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .destination-card p {
+      margin-bottom: 20px;
+    }
+
+    .travel-guides {
+      padding: 50px 0;
+    }
+
+    .guide {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .guide:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
+    }
+
+    .guide h3 {
+      margin-bottom: 10px;
+    }
+
+    .guide p {
+      margin-bottom: 20px;
+    }
+
+    .about {
+      padding: 50px 0;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .about-text h2 {
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .team {
+      flex: 1;
+    }
+
+    .team-member {
+      text-align: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: scale(1.1); /* Scale up on hover */
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .team-member h3 {
+      margin-bottom: 5px;
+    }
+
+    .team-member p {
+      font-style: italic;
+    }
+
+    .contact {
+      padding: 50px 0;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #333; /* Change border color on focus */
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #555;
+    }
+
+    .map-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .map {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .footer-content div {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    .footer-content h3 {
+      margin-bottom: 20px;
+    }
+
+    .footer-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-content ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .footer-content ul li a:hover {
+      color: #ffd700; /* Change color on hover */
+    }
+
+    .newsletter form {
+      display: flex;
+    }
+
+    .newsletter input[type="email"] {
+      flex: 2;
+      border-radius: 5px 0 0 5px;
+      border: none;
+      padding: 10px;
+    }
+
+    .newsletter button {
+      flex: 1;
+      background-color: #fff;
+      color: #333;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .newsletter button:hover {
+      background-color: #ddd; /* Change background color on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Header content -->
+    <div class="container">
+      <div class="logo">Travel & Tourism</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Destinations</a></li>
+          <li><a href="#">Travel Guides</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <!-- Hero content -->
+    <div class="container">
+      <h2>Welcome to Our Travel Website</h2>
+      <p>Discover amazing destinations and plan your next adventure with us.</p>
+      <a href="#" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <section class="destinations">
+    <!-- Destinations content -->
+    <div class="container">
+      <h2>Popular Destinations</h2>
+      <div class="destination-card">
+        <img src="destination1.jpg" alt="Destination 1">
+        <h3>Destination 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+      <div class="destination-card">
+        <img src="destination2.jpg" alt="Destination 2">
+        <h3>Destination 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+      <!-- Add more destination cards as needed -->
+    </div>
+  </section>
+
+  <section class="travel-guides">
+    <!-- Travel guides content -->
+    <div class="container">
+      <h2>Travel Guides</h2>
+      <div class="guide">
+        <h3>Guide 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="guide">
+        <h3>Guide 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <!-- Add more travel guides as needed -->
+    </div>
+  </section>
+
+  <section class="about">
+    <!-- About content -->
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec turpis arcu.</p>
+        </div>
+        <div class="team">
+          <h2>Our Team</h2>
+          <div class="team-member">
+            <img src="team-member1.jpg" alt="Team Member 1">
+            <h3>John Doe</h3>
+            <p>Travel Consultant</p>
+          </div>
+          <div class="team-member">
+            <img src="team-member2.jpg" alt="Team Member 2">
+            <h3>Jane Smith</h3>
+            <p>Travel Blogger</p>
+          </div>
+          <!-- Add more team members as needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <!-- Contact content -->
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </div>
+      <div class="map-container">
+        <div class="map">Google Maps Placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <!-- Footer content -->
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="newsletter">
+          <h3>Subscribe to Our Newsletter</h3>
+          <form action="#" method="POST">
+            <input type="email" name="email" placeholder="Your Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        <div class="legal-info">
+          <h3>Legal Information</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript code
+    // Add your JavaScript code here
+  </script>
+</body>
+</html>
